@@ -1,0 +1,9 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1699241976
+Game.gd::GDScript::-1::1699241430::0::1::::<>Node<>::
+Game.tscn::PackedScene::3032498872867571559::1699241430::0::1::::<><>::res://Game.gd<>uid://b1v8y00f5rgql::::res://images/grid.png
+::res://images/::1699239617
+Blank_icon_128px.png::CompressedTexture2D::2296040996008141435::1699239617::1699239617::1::::<><>::
+grid.png::CompressedTexture2D::4256730422904016011::1699226736::1699226736::1::::<><>::
+O_icon.png::CompressedTexture2D::2552351777129441772::1699225818::1699225818::1::::<><>::
+X_icon.png::CompressedTexture2D::6583471816816066694::1699225818::1699225818::1::::<><>::

@@ -1,0 +1,181 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjg72wjgkx8lv"]
+
+[ext_resource type="Script" path="res://Game.gd" id="1_tnecq"]
+[ext_resource type="Texture2D" uid="uid://b1v8y00f5rgql" path="res://images/grid.png" id="2_gtk8x"]
+
+[sub_resource type="SystemFont" id="SystemFont_u66fc"]
+font_names = PackedStringArray("Garamond")
+
+[sub_resource type="LabelSettings" id="LabelSettings_3cjpc"]
+font = SubResource("SystemFont_u66fc")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i5tg4"]
+line_spacing = 32.0
+font_size = 72
+font_color = Color(0, 0, 0, 1)
+shadow_color = Color(1, 1, 1, 1)
+
+[node name="Node" type="Node"]
+script = ExtResource("1_tnecq")
+
+[node name="Background" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 720.0
+offset_bottom = 648.0
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Background"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 688.0
+offset_bottom = 608.0
+color = Color(0.423529, 0.423529, 0.423529, 1)
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.0
+offset_top = 48.0
+offset_right = 74.0
+offset_bottom = 88.0
+grow_horizontal = 2
+text = "Tic Tac Toe"
+label_settings = SubResource("LabelSettings_3cjpc")
+
+[node name="Grid" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -210.0
+offset_right = 210.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gtk8x")
+
+[node name="TokenContainer" type="GridContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -202.0
+offset_right = 202.0
+offset_bottom = 202.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="TopLeft" type="TextureButton" parent="TokenContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TopMid" type="TextureButton" parent="TokenContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TopRight" type="TextureButton" parent="TokenContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="MidLeft" type="TextureButton" parent="TokenContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="Middle" type="TextureButton" parent="TokenContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="MidRight" type="TextureButton" parent="TokenContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="BottomLeft" type="TextureButton" parent="TokenContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="BottomMid" type="TextureButton" parent="TokenContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="BottomRight" type="TextureButton" parent="TokenContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = 220.0
+offset_right = 136.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="ResetButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reset"
+
+[node name="Control" type="Control" parent="ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="QuitButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.5
+offset_top = -84.5
+offset_right = 304.5
+offset_bottom = 84.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Win or Lose?"
+label_settings = SubResource("LabelSettings_i5tg4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="TokenContainer/TopLeft" to="." method="_on_top_left_pressed"]
+[connection signal="pressed" from="TokenContainer/TopMid" to="." method="_on_top_mid_pressed"]
+[connection signal="pressed" from="TokenContainer/TopRight" to="." method="_on_top_right_pressed"]
+[connection signal="pressed" from="TokenContainer/MidLeft" to="." method="_on_mid_left_pressed"]
+[connection signal="pressed" from="TokenContainer/Middle" to="." method="_on_middle_pressed"]
+[connection signal="pressed" from="TokenContainer/MidRight" to="." method="_on_mid_right_pressed"]
+[connection signal="pressed" from="TokenContainer/BottomLeft" to="." method="_on_bottom_left_pressed"]
+[connection signal="pressed" from="TokenContainer/BottomMid" to="." method="_on_bottom_mid_pressed"]
+[connection signal="pressed" from="TokenContainer/BottomRight" to="." method="_on_bottom_right_pressed"]
+[connection signal="pressed" from="ButtonContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]
